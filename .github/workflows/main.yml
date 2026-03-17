@@ -1,11 +1,6 @@
-# This tells GitHub: "Run my Python Accountant every night at midnight"
 name: Daily_Billing_Automation
-
 on:
-  schedule:
-    # This runs at 00:00 (midnight) every day
-    - cron: '0 0 * * *'
-  workflow_dispatch: # This adds a "Run" button so we can test it manually
+  workflow_dispatch:
 
 jobs:
   run-billing:
@@ -17,7 +12,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: "3.9"
 
-      - name: Run Billing Script
-        run: python supabase/billing_engine.py
+      - name: Install and Run
+        env:
+          TRELLO_KEY: ${{ secrets.TRELLO_KEY }}
+          TRELLO_TOKEN: ${{ secrets.TRELLO_TOKEN }}
+          TRELLO_LIST_ID: ${{ secrets.TRELLO_LIST_ID }}
+        run: |
+          pip install requests
+          python supabase/billing_engine.py
