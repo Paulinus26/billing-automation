@@ -1,15 +1,8 @@
 import os
 import requests
 
-def calculate_bill(usage, limit):
-    price_per_gb = 0.50
-    if usage > limit:
-        overage = usage - limit
-        return round(overage * price_per_gb, 2)
-    return 0.0
-
-def send_to_trello(amount):
-    # These MUST match your GitHub Secrets exactly
+def send_to_trello():
+    # Pulling from your GitHub Secrets
     key = os.getenv('TRELLO_KEY')
     token = os.getenv('TRELLO_TOKEN')
     list_id = os.getenv('TRELLO_LIST_ID')
@@ -19,15 +12,12 @@ def send_to_trello(amount):
         'key': key,
         'token': token,
         'idList': list_id,
-        'name': f"Billing Alert: ${amount} Due",
-        'desc': "Automated alert for Paulinus."
+        'name': "Automation Success: $25.0 Due",
+        'desc': "Sent from GitHub Actions."
     }
     
     response = requests.post(url, params=query)
-    if response.status_code == 200:
-        print("SUCCESS: Card created on Trello!")
-    else:
-        print(f"FAILED: {response.status_code} - {response.text}")
+    print(f"Status: {response.status_code}")
+    print(f"Response: {response.text}")
 
-bill_total = calculate_bill(150, 100)
-send_to_trello(bill_total)
+send_to_trello()
