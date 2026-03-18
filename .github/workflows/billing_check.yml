@@ -1,0 +1,30 @@
+name: Daily Supabase Billing Check
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every day (Approx. 1:00 AM West Africa Time)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Keeps the "Run workflow" button active for manual tests
+
+jobs:
+  check-and-alert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: pip install requests
+
+      - name: Execute Billing Script
+        env:
+          JIRA_DOMAIN: ${{ secrets.JIRA_DOMAIN }}
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          JIRA_PROJECT_KEY: "SUP" # Locked to your confirmed working project
+        run: python supabase/billing_engine.py
