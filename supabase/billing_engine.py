@@ -4,7 +4,6 @@ from requests.auth import HTTPBasicAuth
 import json
 
 def create_jira_ticket(amount):
-    # Load secrets from the environment
     domain = os.getenv('JIRA_DOMAIN')
     email = os.getenv('JIRA_EMAIL')
     token = os.getenv('JIRA_API_TOKEN')
@@ -18,7 +17,6 @@ def create_jira_ticket(amount):
         "Content-Type": "application/json"
     }
 
-    # Jira uses a specific format called 'Atlassian Document Format' for descriptions
     payload = json.dumps({
         "fields": {
             "project": {"key": project_key},
@@ -30,7 +28,7 @@ def create_jira_ticket(amount):
                     {
                         "type": "paragraph",
                         "content": [
-                            {"text": f"Usage threshold exceeded. Automated total due: ${amount}", "type": "text"}
+                            {"text": f"Automated billing engine detected a total due of ${amount}.", "type": "text"}
                         ]
                     }
                 ]
@@ -42,9 +40,9 @@ def create_jira_ticket(amount):
     response = requests.post(url, data=payload, headers=headers, auth=auth)
     
     if response.status_code == 201:
-        print(f"SUCCESS: Jira Ticket created for ${amount}!")
+        print(f"SUCCESS: Jira Ticket created in project {project_key}!")
     else:
         print(f"FAILED: {response.status_code} - {response.text}")
 
-# Run the automation
+# Trigger the alert
 create_jira_ticket(25.0)
