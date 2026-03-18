@@ -2,13 +2,14 @@ name: Daily Supabase Billing Check
 
 on:
   schedule:
-    # Runs at 00:00 UTC every day (Approx. 1:00 AM West Africa Time)
+    # This runs at 00:00 UTC every single day (1:00 AM West Africa Time)
     - cron: '0 0 * * *'
-  workflow_dispatch: # Keeps the "Run workflow" button active for manual tests
+  workflow_dispatch: # This allows you to click "Run workflow" manually for testing
 
 jobs:
   check-and-alert:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -23,8 +24,15 @@ jobs:
 
       - name: Execute Billing Script
         env:
+          # These must match the names in your GitHub Settings > Secrets > Actions
           JIRA_DOMAIN: ${{ secrets.JIRA_DOMAIN }}
           JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
           JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
           JIRA_PROJECT_KEY: "SUP" # Locked to your confirmed working project
         run: python supabase/billing_engine.py
+
+      - name: Alert on Failure
+        if: failure()
+        run: |
+          echo "ALERT: The Daily Billing Check has failed."
+          echo "Check the 'Actions' tab for logs. This usually means an expired API token."
