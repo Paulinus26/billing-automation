@@ -1,0 +1,171 @@
+# Billing Automation and Revenue Protection System
+
+## Project Overview
+
+Billing issues in SaaS products often surface only after a customer is affected. This project focuses on changing that pattern.
+
+I designed and implemented a billing system that improves visibility into payment issues, identifies common causes of revenue loss, and introduces automation to prevent recurring problems. The work began with a structured manual process and later evolved into an automated system that monitors usage and enforces billing rules in real time.
+
+---
+
+## Objective
+
+To build a reliable billing system that:
+
+- Tracks and organizes payment issues in one place  
+- Identifies common causes of billing disputes  
+- Improves how billing issues are handled  
+- Prevents avoidable revenue loss through automation  
+
+---
+
+## Technology Stack
+
+| Category | Tools |
+|----------|------|
+| Languages | Python, TypeScript, SQL, YAML |
+| Cloud & Database | Supabase (PostgreSQL), Edge Functions |
+| DevOps | GitHub Actions, Git |
+| Operations | Jira Service Management, Kanban |
+
+---
+
+# Part 1: Billing Operations Foundation
+
+## Centralized Billing Log
+
+A single tracking system was created to capture all billing-related issues, including failed payments, usage overages, and customer disputes.
+
+This replaced scattered records and made it easier to identify patterns across billing activities. Issues were grouped into categories such as authorization failures, expired payment methods, and invoice discrepancies.
+
+**Outcome:**  
+Improved visibility into recurring billing problems and early signs of revenue leakage.
+
+![Billing Log](images/billing-log.png)
+
+---
+
+## Data Analysis and Insights
+
+The collected data was analyzed to identify the most common sources of billing issues.
+
+A key finding was that a large portion of customer complaints came from usage-based charges. This showed that many disputes were tied to how usage limits were communicated and enforced.
+
+**Outcome:**  
+Clear insight into the main drivers of billing disputes.
+
+![Data Analysis](images/data-analysis.png)
+
+---
+
+## Workflow Management
+
+A workflow system was introduced to track each billing issue from start to resolution. Tasks were organized into stages such as backlog, in progress, and resolved.
+
+This ensured that no issue was overlooked and improved task prioritization.
+
+**Outcome:**  
+Better accountability and faster resolution of billing issues.
+
+![Kanban Board](images/kanban.png)
+
+---
+
+## Customer Communication Standards
+
+Response templates were created for common billing scenarios.
+
+These responses explained charges in simple terms and guided customers on how to monitor usage or prevent future issues.
+
+**Outcome:**  
+Faster responses and clearer communication.
+
+![Customer Template](images/templates.png)
+
+---
+
+# Part 2: Automation and System Implementation
+
+## Database Design
+
+The manual tracking system was replaced with a PostgreSQL database using Supabase.
+
+This database stores user activity, spending limits, and billing status.
+
+**Result:**  
+Structured and reliable data storage.
+
+![Database](images/database.png)
+
+---
+
+## Real-Time Usage Control
+
+A serverless function checks user activity in real time.
+
+Each request is validated against the user’s spending limit. If the limit is exceeded, the system blocks further usage.
+
+**Result:**  
+Prevention of uncontrolled usage and reduced revenue loss.
+
+![Billing Enforcer](images/enforcer.png)
+
+---
+
+## Billing Logic Development
+
+A Python script calculates usage costs and identifies accounts that exceed limits.
+
+**Result:**  
+Accurate and consistent billing logic.
+
+![Python Logic](images/python.png)
+
+---
+
+## Secure Configuration
+
+All credentials are stored securely using environment variables in GitHub.
+
+**Result:**  
+Safe and secure system integration.
+
+![Secrets](images/secrets.png)
+
+---
+
+## Automated Scheduling
+
+GitHub Actions runs billing checks automatically every day.
+
+**Result:**  
+Continuous monitoring without manual effort.
+
+![Workflow](images/workflow.png)
+
+---
+
+## Automated Issue Handling
+
+When a billing issue is detected, a Jira ticket is created automatically.
+
+**Result:**  
+Faster response and better coordination with support teams.
+
+![Jira](images/jira.png)
+
+---
+
+# Final Outcome
+
+This project transformed billing operations from a manual process into a structured and automated system.
+
+Key improvements:
+
+- Clear visibility into billing issues  
+- Faster identification of root causes  
+- Reduced manual workload  
+- Real-time usage control  
+- Automated handling of billing incidents  
+
+The system protects revenue and improves the customer experience by resolving issues early.
