@@ -1,23 +1,50 @@
 import os
 import requests
+from requests.auth import HTTPBasicAuth
+import json
 
-def send_to_trello():
-    # Pulling from your GitHub Secrets
-    key = os.getenv('TRELLO_KEY')
-    token = os.getenv('TRELLO_TOKEN')
-    list_id = os.getenv('TRELLO_LIST_ID')
+def create_jira_ticket(amount):
+    # Load secrets from the environment
+    domain = os.getenv('JIRA_DOMAIN')
+    email = os.getenv('JIRA_EMAIL')
+    token = os.getenv('JIRA_API_TOKEN')
+    project_key = os.getenv('JIRA_PROJECT_KEY')
 
-    url = "https://api.trello.com/1/cards"
-    query = {
-        'key': key,
-        'token': token,
-        'idList': list_id,
-        'name': "Automation Success: $25.0 Due",
-        'desc': "Sent from GitHub Actions."
-    }
+    url = f"https://{domain}/rest/api/3/issue"
     
-    response = requests.post(url, params=query)
-    print(f"Status: {response.status_code}")
-    print(f"Response: {response.text}")
+    auth = HTTPBasicAuth(email, token)
+    headers = {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    }
 
-send_to_trello()
+    # Jira uses a specific format called 'Atlassian Document Format' for descriptions
+    payload = json.dumps({
+        "fields": {
+            "project": {"key": project_key},
+            "summary": f"Billing Alert: ${amount} Overage Detected",
+            "description": {
+                "type": "doc",
+                "version": 1,
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "content": [
+                            {"text": f"Usage threshold exceeded. Automated total due: ${amount}", "type": "text"}
+                        ]
+                    }
+                ]
+            },
+            "issuetype": {"name": "Task"}
+        }
+    })
+
+    response = requests.post(url, data=payload, headers=headers, auth=auth)
+    
+    if response.status_code == 201:
+        print(f"SUCCESS: Jira Ticket created for ${amount}!")
+    else:
+        print(f"FAILED: {response.status_code} - {response.text}")
+
+# Run the automation
+create_jira_ticket(25.0)
