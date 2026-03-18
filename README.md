@@ -41,8 +41,8 @@ This replaced scattered records and made it easier to identify patterns across b
 **Outcome:**  
 Improved visibility into recurring billing problems and early signs of revenue leakage.
 
-![Billing Log](images/billing-log.png)
-
+![Billing Log](https://github.com/Paulinus26/billing-automation/blob/main/billing-log.png.png?raw=true))
+Figure 1: Master Billing Error & Denial Log
 ---
 
 ## Data Analysis and Insights
