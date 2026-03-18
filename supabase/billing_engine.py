@@ -3,11 +3,11 @@ import requests
 from requests.auth import HTTPBasicAuth
 import json
 
-def create_jira_ticket(amount):
+def create_billing_ticket(amount):
     domain = os.getenv('JIRA_DOMAIN')
     email = os.getenv('JIRA_EMAIL')
     token = os.getenv('JIRA_API_TOKEN')
-    project_key = os.getenv('JIRA_PROJECT_KEY') # Set this to SUP
+    project_key = os.getenv('JIRA_PROJECT_KEY') # This is now 'SUP'
 
     url = f"https://{domain}/rest/api/3/issue"
     auth = HTTPBasicAuth(email, token)
@@ -16,13 +16,12 @@ def create_jira_ticket(amount):
     payload = json.dumps({
         "fields": {
             "project": {"key": project_key},
-            "summary": f"Billing Alert: ${amount} Overage Detected",
+            "summary": f"BILLING ALERT: ${amount} Overage",
             "description": {
-                "type": "doc",
-                "version": 1,
-                "content": [{"type": "paragraph", "content": [{"text": f"System Alert: Total due is ${amount}", "type": "text"}]}]
+                "type": "doc", "version": 1,
+                "content": [{"type": "paragraph", "content": [{"text": f"Overage of ${amount} detected in Supabase.", "type": "text"}]}]
             },
-            "issuetype": {"name": "Task"} 
+            "issuetype": {"name": "Task"}
         }
     })
 
@@ -30,4 +29,4 @@ def create_jira_ticket(amount):
     print(f"Status: {response.status_code}")
     print(f"Response: {response.text}")
 
-create_jira_ticket(25.0)
+create_billing_ticket(25.0)
