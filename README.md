@@ -41,7 +41,7 @@ This replaced scattered records and made it easier to identify patterns across b
 **Outcome:**  
 Improved visibility into recurring billing problems and early signs of revenue leakage.
 
-![Billing Log](https://github.com/Paulinus26/billing-automation/blob/main/billing-log.png.png?raw=true))
+![Billing Log](https://github.com/Paulinus26/billing-automation/blob/main/billing-log.png.png?raw=true)
 Figure 1: Master Billing Error & Denial Log
 ---
 
@@ -54,7 +54,8 @@ A key finding was that a large portion of customer complaints came from usage-ba
 **Outcome:**  
 Clear insight into the main drivers of billing disputes.
 
-![Data Analysis](images/data-analysis.png)
+![Data Analysis](https://raw.githubusercontent.com/Paulinus26/billing-automation/18464f648910b19add476b7d5dbf199d415e9f47/photo%202.png)
+Figure 2: Statistical Distribution of Billing Disputes
 
 ---
 
