@@ -155,7 +155,7 @@ When a billing issue is detected, a Jira ticket is created automatically.
 **Result:**  
 Faster response and better coordination with support teams.
 
-![Jira image1][(https://raw.githubusercontent.com/Paulinus26/billing-automation/aefd3b755ca13c296f8eb0821f33b0fcb126bb57/image%206a.png)
+![Jira image1](https://raw.githubusercontent.com/Paulinus26/billing-automation/aefd3b755ca13c296f8eb0821f33b0fcb126bb57/image%206a.png)
 ![Jira image2](https://github.com/Paulinus26/billing-automation/blob/main/image%206b.png?raw=true)
 Figure 10: Automated Incident Generation in Jira
 ---
