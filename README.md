@@ -143,8 +143,8 @@ GitHub Actions runs billing checks automatically every day.
 **Result:**  
 Continuous monitoring without manual effort.
 
-![Workflow](images/workflow.png)
-
+![Workflow](https://raw.githubusercontent.com/Paulinus26/billing-automation/2e16079155f03cd9f249d25efabd662ccf55e11c/image%205.png)
+Figure 9: The Automated Workflow Engine (YAML)
 ---
 
 ## Automated Issue Handling
