@@ -97,8 +97,8 @@ This database stores user activity, spending limits, and billing status.
 **Result:**  
 Structured and reliable data storage.
 
-![Database](images/database.png)
-
+![Database](https://raw.githubusercontent.com/Paulinus26/billing-automation/dcdd615043938774919dc641d49c2b51da3f127b/Image1.png)
+Figure 5: Navigating to User Account Settings
 ---
 
 ## Real-Time Usage Control
