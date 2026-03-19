@@ -132,8 +132,8 @@ All credentials are stored securely using environment variables in GitHub.
 **Result:**  
 Safe and secure system integration.
 
-![Secrets](images/secrets.png)
-
+![Secrets](https://raw.githubusercontent.com/Paulinus26/billing-automation/f1a7b901586df02ad6681877b661da7450ba9d5a/image%204.png)
+Figure 8: Secure Environment Configuration
 ---
 
 ## Automated Scheduling
