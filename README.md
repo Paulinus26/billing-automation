@@ -121,8 +121,8 @@ A Python script calculates usage costs and identifies accounts that exceed limit
 **Result:**  
 Accurate and consistent billing logic.
 
-![Python Logic](images/python.png)
-
+![Python Logic](https://raw.githubusercontent.com/Paulinus26/billing-automation/1d1db468669a36ad62d0a5693e1d17aaaf3b3354/image%203.png)
+Figure 7: Engineering the Logic & Deployment Pipeline
 ---
 
 ## Secure Configuration
