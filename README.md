@@ -68,8 +68,8 @@ This ensured that no issue was overlooked and improved task prioritization.
 **Outcome:**  
 Better accountability and faster resolution of billing issues.
 
-![Kanban Board](images/kanban.png)
-
+![Kanban Board](https://raw.githubusercontent.com/Paulinus26/billing-automation/3bc14b6e72ad45a3705df348b3a13c09d90bc0c4/photo%203.png)
+Figure 3: Kanban Pipeline for Dispute Resolution
 ---
 
 ## Customer Communication Standards
