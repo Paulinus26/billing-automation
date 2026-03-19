@@ -110,8 +110,8 @@ Each request is validated against the user’s spending limit. If the limit is e
 **Result:**  
 Prevention of uncontrolled usage and reduced revenue loss.
 
-![Billing Enforcer](images/enforcer.png)
-
+![Billing Enforcer](https://github.com/Paulinus26/billing-automation/blob/main/Image%202.png?raw=true)
+Figure 6: Live Deployment of Billing-Enforcer
 ---
 
 ## Billing Logic Development
