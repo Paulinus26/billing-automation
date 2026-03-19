@@ -81,8 +81,8 @@ These responses explained charges in simple terms and guided customers on how to
 **Outcome:**  
 Faster responses and clearer communication.
 
-![Customer Template](images/templates.png)
-
+![Customer Template](https://raw.githubusercontent.com/Paulinus26/billing-automation/8cf0b2c1532c9cb9620c5ca93004d3ad5607376e/photo%204.png)
+Figure 4: Standardized Customer Education Template
 ---
 
 # Part 2: Automation and System Implementation
